@@ -38,6 +38,7 @@ export class Level1 extends Level {
         );
         brick.setTint(colors[row]);
         brick.setDisplaySize(116 * scaleFullMax, 50 * scaleFullMax);
+        brick.body.setSize(116 * scaleFullMax, 50 * scaleFullMax);
         brick.setOrigin(0.5, 0.5);
         brick.setOffset(0, 0);
       }
