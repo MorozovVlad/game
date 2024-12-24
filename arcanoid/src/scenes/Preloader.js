@@ -49,10 +49,12 @@ export class Preloader extends Scene {
     const scaleXX = this.sys.game.config.width / 1536;
     const scaleYY = this.sys.game.config.height / 748;
     const scaleFull = Math.min(scaleXX, scaleYY);
+    const scaleFull2 = Math.max(scaleXX, scaleYY);
 
     this.sys.game.config.scaleFactor3 = scaleYY;
     this.sys.game.config.scaleFactor2 = scaleXX;
     this.sys.game.config.scaleFactor = scaleFull;
+    this.sys.game.config.scaleFactor4 = scaleFull2;
     this.input.once("pointerdown", () => {
       this.scene.start("MainMenu");
     });

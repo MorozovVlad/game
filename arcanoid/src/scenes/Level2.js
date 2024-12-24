@@ -9,9 +9,11 @@ export class Level2 extends Level {
 
   create() {
     const scaleFull = this.sys.game.config.scaleFactor;
+    const scaleFullMax = this.sys.game.config.scaleFactor4;
     const scaleFullX = this.sys.game.config.scaleFactor2;
     const scaleFullY = this.sys.game.config.scaleFactor3;
 
+    this.scaleFullMax = scaleFullMax;
     this.scaleFullX = scaleFullX;
     this.scaleFullY = scaleFullY;
 
@@ -26,19 +28,22 @@ export class Level2 extends Level {
     this.bricks = this.physics.add.staticGroup();
     const colors = [0xff0000, 0xff7105, 0xffff00, 0x00ff00, 0x00c4fa, 0xeb02c4];
     let leftPaddingBricks =
-      window.innerWidth / 2 - 116 * 4 * scaleFullX + 58 * scaleFullX;
+      this.sys.game.config.width / 2 - 116 * 4 * scaleFullMax;
 
     for (let row = 0; row < 6; row++) {
       const blocksInRow = 8 - row;
-      const offsetX = (row * 116 * scaleFullX) / 2;
+      const offsetX = (row * 116 * scaleFullMax) / 2;
       for (let col = 0; col < blocksInRow; col++) {
         const brick = this.bricks.create(
-          leftPaddingBricks + offsetX + col * 116 * scaleFullY,
-          (100 + row * 50) * scaleFull,
+          leftPaddingBricks +
+            offsetX +
+            col * 116 * scaleFullMax +
+            58 * scaleFullMax,
+          (100 + row * 50) * scaleFullY,
           "brick"
         );
         brick.setTint(colors[row % colors.length]);
-        brick.setDisplaySize(116 * scaleFull, 50 * scaleFull);
+        brick.setDisplaySize(116 * scaleFullMax, 50 * scaleFullMax);
         brick.setOrigin(0.5, 0.5);
         brick.setOffset(0, 0);
       }
@@ -61,10 +66,7 @@ export class Level2 extends Level {
     }
     this.gameObjects.movePlatform();
 
-    if (
-      this.gameObjects.ball.y >=
-      this.sys.game.config.height - 20 * this.scaleFullY
-    ) {
+    if (this.gameObjects.ball.y > this.gameObjects.platform.y) {
       this.lives--;
       this.loseLife(this.lives);
     }
