@@ -33,7 +33,7 @@ export class Level2 extends Level {
       const offsetX = (row * 116 * scaleFullX) / 2;
       for (let col = 0; col < blocksInRow; col++) {
         const brick = this.bricks.create(
-          leftPaddingBricks + offsetX + col * 116 * scaleFullX,
+          leftPaddingBricks + offsetX + col * 116 * scaleFullY,
           (100 + row * 50) * scaleFull,
           "brick"
         );

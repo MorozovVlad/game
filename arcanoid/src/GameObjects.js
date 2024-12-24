@@ -23,7 +23,7 @@ export class GameObjects {
     let leftPaddingPlatform = this.scene.sys.game.config.width / 2;
     this.ball = this.scene.physics.add.sprite(
       leftPaddingPlatform,
-      660 * this.scene.scaleFullY,
+      655 * this.scene.scaleFullY,
       "ball"
     );
     this.ball.setCollideWorldBounds(true);

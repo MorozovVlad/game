@@ -50,7 +50,7 @@ export class Level extends Scene {
       this.gameObjects.ball.setVelocity(0, 0);
       this.gameObjects.ball.setPosition(
         this.gameObjects.platform.x,
-        660 * this.scaleFullY
+        645 * this.scaleFullY
       );
       this.sound.play("lose_live");
     } else {

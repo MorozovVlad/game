@@ -25,11 +25,11 @@ export class Level1 extends Level {
     this.bricks = this.physics.add.staticGroup();
     const colors = [0xff0000, 0xff7105, 0xffff00, 0x00ff00, 0x00c4fa, 0xeb02c4];
     let leftPaddingBricks =
-      this.sys.game.config.width / 2 - 116 * 4 * scaleFullX + 58 * scaleFullX;
+      this.sys.game.config.width / 2 - 116 * 4 * scaleFullY + 58 * scaleFullY;
     for (let row = 0; row < 2; row++) {
       for (let col = 0; col < 8; col++) {
         const brick = this.bricks.create(
-          leftPaddingBricks + col * 116 * scaleFullX,
+          leftPaddingBricks + col * 116 * scaleFullY,
           (100 + row * 50) * scaleFull,
           "brick"
         );
@@ -55,10 +55,7 @@ export class Level1 extends Level {
       this.gameObjects.ball.x = this.gameObjects.platform.x;
     }
     this.gameObjects.movePlatform();
-    if (
-      this.gameObjects.ball.y >=
-      this.sys.game.config.height - 20 * this.scaleFullY
-    ) {
+    if (this.gameObjects.ball.y > this.gameObjects.platform.y) {
       this.lives--;
       this.loseLife(this.lives);
     }
