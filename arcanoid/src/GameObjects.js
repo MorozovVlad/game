@@ -31,6 +31,10 @@ export class GameObjects {
       40 * this.scene.scaleFullX,
       40 * this.scene.scaleFullX
     );
+    this.ball.body.setSize(
+      40 * this.scene.scaleFullX,
+      40 * this.scene.scaleFullX
+    );
     this.ball.setBounce(1);
   }
   movePlatform = () => {

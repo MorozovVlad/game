@@ -36,11 +36,13 @@ export class Level1 extends Level {
           (100 + row * 50) * scaleFullMax,
           "brick"
         );
+        brick.setOffset(0, 0);
         brick.setTint(colors[row]);
         brick.setDisplaySize(116 * scaleFullMax, 50 * scaleFullMax);
         brick.body.setSize(116 * scaleFullMax, 50 * scaleFullMax);
-        brick.setOrigin(0.5, 0.5);
-        brick.setOffset(0, 0);
+        brick.setSize(116 * scaleFullMax, 50 * scaleFullMax, 150, 150);
+
+        brick.setOrigin(0.5 / scaleFullX, 0.5 / scaleFullY);
       }
     }
     this.cursors = this.input.keyboard.createCursorKeys();
