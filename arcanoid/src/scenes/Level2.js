@@ -39,7 +39,7 @@ export class Level2 extends Level {
             offsetX +
             col * 116 * scaleFullMax +
             58 * scaleFullMax,
-          (100 + row * 50) * scaleFullY,
+          (100 + row * 50) * scaleFullMax,
           "brick"
         );
         brick.setTint(colors[row % colors.length]);

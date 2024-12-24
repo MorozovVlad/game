@@ -33,7 +33,7 @@ export class Level1 extends Level {
       for (let col = 0; col < 8; col++) {
         const brick = this.bricks.create(
           leftPaddingBricks + col * 116 * scaleFullMax + 58 * scaleFullMax,
-          (100 + row * 50) * scaleFull,
+          (100 + row * 50) * scaleFullMax,
           "brick"
         );
         brick.setTint(colors[row]);
